@@ -6,9 +6,20 @@
     "watch": "ts-node-dev --respawn index.dev.ts"
   },
   "devDependencies": {
+    "@types/config": "^3.3.0",
     "@types/node": "^18.7.23",
     "module-alias": "^2.2.2",
+    "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "config": "^3.3.8",
+    "mysql2": "^2.3.3",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.10"
+  },
+  "_moduleAliases": {
+    "#root": "./src"
   }
 }

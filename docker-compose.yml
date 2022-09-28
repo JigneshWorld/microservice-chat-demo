@@ -24,18 +24,18 @@ services:
       - ./chat-service:/opt/app
 
   chat-service-db:
+    image: mysql:latest
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=db
-    image: mysql:latest
     ports:
       - "7200:3306"
 
   phpmyadmin:
+    image: phpmyadmin/phpmyadmin
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=db
-    image: phpmyadmin/phpmyadmin
     ports:
       - "7300:80"
     volumes:
@@ -53,9 +53,9 @@ services:
       - ./users-service:/opt/app
 
   users-service-db:
+    image: mysql:latest
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=db
-    image: mysql:latest
     ports:
       - "7201:3306"
