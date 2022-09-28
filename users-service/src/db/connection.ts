@@ -1,15 +1,11 @@
-import config from "config";
-import { Connection, createConnection } from "typeorm";
+import { AppDataSource } from "./ormconfig";
 
-let connection: Connection;
-
-export const initConnection = async () => {
-  connection = await createConnection({
-    type: "mysql",
-    url: <string>config.get("USERS_SERVICE_DB_URL"),
+AppDataSource.initialize()
+  .then(() => {
+    console.log("Data Source has been initialized!");
+  })
+  .catch((err) => {
+    console.error("Error during Data Source initialization", err);
   });
-};
 
-const getConnection = () => connection;
-
-export default getConnection;
+export default AppDataSource;

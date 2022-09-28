@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "db:migration:up": "ts-node ./node_modules/typeorm/cli.js migration:run -d src/db/ormconfig.ts",
+    "db:migration:down": "ts-node ./node_modules/typeorm/cli.js migration:revert -d src/db/ormconfig.ts",
     "watch": "ts-node-dev --respawn index.dev.ts"
   },
   "devDependencies": {
